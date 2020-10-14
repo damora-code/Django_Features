@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block page_content %}
+<script src="https://kit.fontawesome.com/734e42659a.js" crossorigin="anonymous"></script>
 <h1>{{ project.title }}</h1>
 <div class="row">
     <div class="col-md-8">
@@ -13,8 +14,7 @@
         <br>
         <h5>Technology used:</h5>
         <p>{{ project.technology }}</p>
-        <a style="font-weight: bold" href="/projects/"><img src="/static/img/project1.png" alt="HTML tutorial" style="width:42px;height:42px;">Click here!</a>
-        
+        <a style="font-weight:bold" href="https://github.com/damora-code/Portfolio-Website"><i class="fa fa-github" style="font-size:36px;color:black"></i>Check out the repo!</a>
     </div>
 </div>
 {% endblock %}
