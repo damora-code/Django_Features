@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Contact - {{ block.super }}{% endblock %}
-
 {% block page_content %}
+<script src="https://kit.fontawesome.com/734e42659a.js" crossorigin="anonymous"></script>
 <h1>Contact </h1>
 <form role="form" action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn btn-primary" type="submit">Submit</button>
 </form>
+<a href="https://github.com/damora-code/"><i class="fa fa-github" style="font-size:36px;color:black"></i></a>
+
 {% endblock %}
