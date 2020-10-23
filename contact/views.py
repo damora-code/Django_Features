@@ -27,17 +27,17 @@ def contact(request):
                 'form_content': form_content,
             }
             content = template.render(context)
-
+            
             email = EmailMessage(
                 "New contact form submission",
                 content,
                 "Your website" +'',
-                ['youremail@gmail.com'],
+                ['daniel.morales117@yahoo.com'],
                 headers = {'Reply-To': contact_email }
             )
             email.send()
             return redirect('contact')
-
-    return render(request, 'contact_index.html', {
-        'form': form_class,
-    })
+            def thanks(request):
+                contact_name = contact_name
+            return contact_name
+    return render(request, 'contact_index.html', {'form': form_class})
