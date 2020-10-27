@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from contact.forms import ContactForm
-from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 from django.template.loader import get_template
 
 def contact(request):
@@ -13,9 +13,7 @@ def contact(request):
             contact_name = request.POST.get(
                 'contact_name'
             , '')
-            contact_email = request.POST.get(
-                'contact_email'
-            , '')
+            contact_email = form.cleaned_data['contact_email']
             form_content = request.POST.get('content', '')
 
             # Email the profile with the
@@ -28,14 +26,12 @@ def contact(request):
             }
             content = template.render(context)
             
-            email = EmailMessage(
-                "New contact form submission",
-                content,
-                contact_email +'',
-                ['daniel.morales117@yahoo.com'],
-                headers = {'Reply-To': contact_email }
-            )
-            email.send()
+            email = send_mail(
+            "New contact form submission",
+             content, 
+             None, 
+             ['daniel.morales117@yahoo.com'], 
+             fail_silently=False)
             return redirect('contact')
 
     return render(request, 'contact_index.html', {'form': form_class})
