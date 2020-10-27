@@ -31,13 +31,11 @@ def contact(request):
             email = EmailMessage(
                 "New contact form submission",
                 content,
-                "Your website" +'',
+                contact_email +'',
                 ['daniel.morales117@yahoo.com'],
                 headers = {'Reply-To': contact_email }
             )
             email.send()
             return redirect('contact')
-            def thanks(request):
-                contact_name = contact_name
-            return contact_name
+
     return render(request, 'contact_index.html', {'form': form_class})
