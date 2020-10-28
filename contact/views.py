@@ -31,7 +31,7 @@ def contact(request):
              content, 
              None, 
              ['daniel.morales117@yahoo.com'], 
-             fail_silently=False)
+             fail_silently=True)
             return redirect('contact')
 
     return render(request, 'contact_index.html', {'form': form_class})
